@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lista de Clientes</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .btn-cadastrar {
+            display: inline-block;
+            background-color: #198754;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .btn-cadastrar:hover {
+            background-color: #157347;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: #0d6efd;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .btn-editar {
+            background-color: #ffc107;
+            color: #000;
+            padding: 6px 10px;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .btn-excluir {
+            background-color: #dc3545;
+            color: white;
+            padding: 6px 10px;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Lista de Clientes</h1>
+
+        <a href="#" class="btn-cadastrar">
+            Cadastrar Cliente
+        </a>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>Telefone</th>
+                    <th>Data de Cadastro</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for cli in clientes %}
+                <tr>
+                    <td>{{cli.id}}</td>
+                    <td>{{cli.nome}}</td>
+                    <td>{{cli.email}}</td>
+                    <td>{{cli.telefone}}</td>
+                    <td>{{cli.data_cadastro}}</td>
+                    <td>
+                        <a href="#" class="btn-editar">
+                            Editar
+                        </a>
+
+                        <a href="#" class="btn-excluir">
+                            Excluir
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+
+    </div>
+
+</body>
+</html>
